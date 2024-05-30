@@ -28,6 +28,27 @@ func main() {
 		fmt.Println(err)
 	}
 
+	arr := [...]int{1, 2, 3, 4, 5, 6, 7, 8}
+
+	fmt.Println(arr)
+	fmt.Println(filter(arr[:], isEven))
+	fmt.Println(arr)
+
+}
+func isEven(x int) bool {
+	return x%2 == 0
+}
+
+// filter array
+func filter(arr []int, f func(int) bool) []int {
+	arr[0] = 60
+	var res []int
+	for _, v := range arr {
+		if f(v) {
+			res = append(res, v)
+		}
+	}
+	return res
 }
 
 func getArea(x int, y int) int {
